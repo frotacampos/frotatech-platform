@@ -1,0 +1,125 @@
+{
+  "name": "Reporte",
+  "type": "object",
+  "properties": {
+    "descricao": {
+      "type": "string",
+      "description": "Descri\u00e7\u00e3o do problema de ilumina\u00e7\u00e3o"
+    },
+    "foto_url": {
+      "type": "string",
+      "description": "URL da foto do problema enviada pelo cidad\u00e3o"
+    },
+    "foto_resolucao_url": {
+      "type": "string",
+      "description": "URL da foto de resolu\u00e7\u00e3o enviada pelo operador"
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Latitude da localiza\u00e7\u00e3o GPS"
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Longitude da localiza\u00e7\u00e3o GPS"
+    },
+    "endereco": {
+      "type": "string",
+      "description": "Endere\u00e7o aproximado"
+    },
+    "cidade_id": {
+      "type": "string",
+      "description": "ID da cidade associada"
+    },
+    "cidade_nome": {
+      "type": "string",
+      "description": "Nome da cidade"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Pendente",
+        "Em Andamento",
+        "Resolvido",
+        "Cancelado"
+      ],
+      "default": "Pendente",
+      "description": "Status do chamado"
+    },
+    "categoria": {
+      "type": "string",
+      "default": "Ilumina\u00e7\u00e3o P\u00fablica",
+      "description": "Categoria do problema"
+    },
+    "usuario_id": {
+      "type": "string",
+      "description": "ID do usu\u00e1rio que registrou (se logado)"
+    },
+    "usuario_nome": {
+      "type": "string",
+      "description": "Nome do usu\u00e1rio que registrou"
+    },
+    "nome_cidadao": {
+      "type": "string",
+      "description": "Nome do cidad\u00e3o (se n\u00e3o logado)"
+    },
+    "cpf_cidadao": {
+      "type": "string",
+      "description": "CPF do cidad\u00e3o (se n\u00e3o logado)"
+    },
+    "telefone_cidadao": {
+      "type": "string",
+      "description": "Telefone do cidad\u00e3o (se n\u00e3o logado)"
+    },
+    "data_criacao": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Data e hora de cria\u00e7\u00e3o"
+    },
+    "operador_id": {
+      "type": "string",
+      "description": "ID do operador respons\u00e1vel"
+    },
+    "operador_nome": {
+      "type": "string",
+      "description": "Nome do operador respons\u00e1vel"
+    },
+    "data_inicio_atendimento": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Data em que o status mudou para Em Andamento"
+    },
+    "data_resolucao": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Data em que o status mudou para Resolvido"
+    },
+    "observacoes": {
+      "type": "string",
+      "description": "Coment\u00e1rio mais recente do operador"
+    },
+    "historico": {
+      "type": "array",
+      "description": "Hist\u00f3rico de atualiza\u00e7\u00f5es",
+      "items": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string"
+          },
+          "usuario_nome": {
+            "type": "string"
+          },
+          "acao": {
+            "type": "string"
+          },
+          "texto": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "descricao"
+  ]
+}

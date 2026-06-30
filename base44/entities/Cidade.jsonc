@@ -1,0 +1,30 @@
+{
+  "name": "Cidade",
+  "type": "object",
+  "properties": {
+    "nome": {
+      "type": "string",
+      "description": "Nome da cidade"
+    },
+    "estado": {
+      "type": "string",
+      "description": "UF do estado"
+    },
+    "latitude_centro": {
+      "type": "number",
+      "description": "Latitude central da cidade para centralizar o mapa"
+    },
+    "longitude_centro": {
+      "type": "number",
+      "description": "Longitude central da cidade para centralizar o mapa"
+    },
+    "ativa": {
+      "type": "boolean",
+      "default": true,
+      "description": "Se a cidade est\u00e1 ativa no sistema"
+    }
+  },
+  "required": [
+    "nome"
+  ]
+}

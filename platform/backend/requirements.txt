@@ -1,0 +1,11 @@
+fastapi
+uvicorn==0.30.6
+pydantic
+sqlalchemy
+alembic
+psycopg
+python-jose
+passlib
+bcrypt==4.0.1
+redis
+python-dotenv

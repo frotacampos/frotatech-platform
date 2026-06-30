@@ -1,0 +1,45 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "enum": [
+        "admin",
+        "operador",
+        "cidadao",
+        "admin_empresa",
+        "operador_empresa"
+      ],
+      "default": "cidadao",
+      "description": "Papel do usu\u00e1rio no sistema"
+    },
+    "empresa_id": {
+      "type": "string",
+      "description": "ID da empresa vinculada (para admin_empresa e operador_empresa)"
+    },
+    "empresa_nome": {
+      "type": "string",
+      "description": "Nome da empresa vinculada"
+    },
+    "cargo": {
+      "type": "string",
+      "description": "Cargo/fun\u00e7\u00e3o do usu\u00e1rio na empresa"
+    },
+    "cpf": {
+      "type": "string",
+      "description": "CPF do usu\u00e1rio"
+    },
+    "telefone": {
+      "type": "string",
+      "description": "Telefone do usu\u00e1rio"
+    }
+  },
+  "required": [
+    "empresa_id",
+    "empresa_nome",
+    "cargo",
+    "cpf",
+    "telefone"
+  ]
+}

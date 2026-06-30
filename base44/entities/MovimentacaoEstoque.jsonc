@@ -1,0 +1,49 @@
+{
+  "name": "MovimentacaoEstoque",
+  "type": "object",
+  "properties": {
+    "material_id": {
+      "type": "string",
+      "description": "ID do material"
+    },
+    "material_nome": {
+      "type": "string",
+      "description": "Nome do material (desnormalizado)"
+    },
+    "tipo": {
+      "type": "string",
+      "enum": [
+        "Entrada",
+        "Sa\u00edda",
+        "Ajuste"
+      ],
+      "description": "Tipo de movimenta\u00e7\u00e3o"
+    },
+    "quantidade": {
+      "type": "number",
+      "description": "Quantidade movimentada"
+    },
+    "motivo": {
+      "type": "string",
+      "description": "Motivo da movimenta\u00e7\u00e3o"
+    },
+    "reporte_id": {
+      "type": "string",
+      "description": "ID do chamado vinculado (se houver)"
+    },
+    "operador_nome": {
+      "type": "string",
+      "description": "Nome do operador que realizou a movimenta\u00e7\u00e3o"
+    },
+    "observacao": {
+      "type": "string",
+      "description": "Observa\u00e7\u00e3o adicional"
+    }
+  },
+  "required": [
+    "material_id",
+    "material_nome",
+    "tipo",
+    "quantidade"
+  ]
+}

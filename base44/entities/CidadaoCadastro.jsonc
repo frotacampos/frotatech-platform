@@ -1,0 +1,41 @@
+{
+  "name": "CidadaoCadastro",
+  "type": "object",
+  "properties": {
+    "nome": {
+      "type": "string",
+      "description": "Nome completo do cidad\u00e3o"
+    },
+    "cpf": {
+      "type": "string",
+      "description": "CPF do cidad\u00e3o (apenas d\u00edgitos)"
+    },
+    "data_nascimento": {
+      "type": "string",
+      "format": "date",
+      "description": "Data de nascimento do cidad\u00e3o"
+    },
+    "telefone": {
+      "type": "string",
+      "description": "Telefone de contato"
+    },
+    "email": {
+      "type": "string",
+      "description": "E-mail do cidad\u00e3o (opcional)"
+    },
+    "senha_hash": {
+      "type": "string",
+      "description": "Hash simples da senha para autentica\u00e7\u00e3o"
+    },
+    "ativo": {
+      "type": "boolean",
+      "default": true,
+      "description": "Se o cadastro est\u00e1 ativo"
+    }
+  },
+  "required": [
+    "nome",
+    "cpf",
+    "data_nascimento"
+  ]
+}

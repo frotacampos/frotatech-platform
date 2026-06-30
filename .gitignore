@@ -1,0 +1,62 @@
+# Environment files with secrets
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+.env.test
+
+# Keep safe examples in Git
+!.env.example
+!**/.env.example
+!**/.env.production.example
+
+# Node / Vite
+node_modules/
+dist/
+dist-ssr/
+.vite/
+
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local databases and generated uploads
+*.db
+*.sqlite
+*.sqlite3
+platform/backend/*.db
+platform/backend/uploads/
+uploads/
+
+# Logs and temp files
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.tmp
+*.temp
+tmp/
+temp/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

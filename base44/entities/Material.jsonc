@@ -1,0 +1,79 @@
+{
+  "name": "Material",
+  "type": "object",
+  "properties": {
+    "nome": {
+      "type": "string",
+      "description": "Nome do material"
+    },
+    "codigo": {
+      "type": "string",
+      "description": "C\u00f3digo interno do material"
+    },
+    "categoria": {
+      "type": "string",
+      "enum": [
+        "L\u00e2mpada",
+        "Lumin\u00e1ria",
+        "Cabo",
+        "Poste",
+        "Rel\u00e9",
+        "Disjuntor",
+        "Caixa de Passagem",
+        "Ferramental",
+        "EPI",
+        "Outros"
+      ],
+      "description": "Categoria do material"
+    },
+    "unidade": {
+      "type": "string",
+      "enum": [
+        "un",
+        "m",
+        "m\u00b2",
+        "kg",
+        "caixa",
+        "rolo",
+        "par"
+      ],
+      "default": "un",
+      "description": "Unidade de medida"
+    },
+    "quantidade_estoque": {
+      "type": "number",
+      "default": 0,
+      "description": "Quantidade atual em estoque"
+    },
+    "quantidade_minima": {
+      "type": "number",
+      "default": 0,
+      "description": "Quantidade m\u00ednima antes de alertar"
+    },
+    "preco_unitario": {
+      "type": "number",
+      "description": "Pre\u00e7o unit\u00e1rio do material"
+    },
+    "fornecedor": {
+      "type": "string",
+      "description": "Nome do fornecedor"
+    },
+    "localizacao": {
+      "type": "string",
+      "description": "Localiza\u00e7\u00e3o no almoxarifado (ex: Prateleira A2)"
+    },
+    "descricao": {
+      "type": "string",
+      "description": "Descri\u00e7\u00e3o adicional do material"
+    },
+    "ativo": {
+      "type": "boolean",
+      "default": true,
+      "description": "Se o material est\u00e1 ativo no sistema"
+    }
+  },
+  "required": [
+    "nome",
+    "categoria"
+  ]
+}
