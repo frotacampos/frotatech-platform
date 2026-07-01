@@ -5,7 +5,7 @@ services:
     rootDir: platform/backend
     plan: starter
     buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    startCommand: sh start.sh
     healthCheckPath: /health
     envVars:
       - key: PYTHON_VERSION
@@ -24,6 +24,10 @@ services:
         value: https://lumicity.frotatech.dev.br,https://staging-lumicity.frotatech.dev.br
       - key: API_V1_PREFIX
         value: /api/v1
+      - key: RUN_MIGRATIONS_ON_START
+        value: true
+      - key: RUN_DEMO_SEED_ON_START
+        value: false
 
 databases:
   - name: frotatech-platform-db

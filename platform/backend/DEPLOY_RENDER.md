@@ -29,6 +29,8 @@ ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES=60
 ALLOWED_ORIGINS=https://lumicity.frotatech.dev.br,https://staging-lumicity.frotatech.dev.br
 API_V1_PREFIX=/api/v1
+RUN_MIGRATIONS_ON_START=true
+RUN_DEMO_SEED_ON_START=false
 ```
 
 Observacoes:
@@ -55,7 +57,7 @@ O blueprint usa:
 ```bash
 Root Directory: platform/backend
 Build Command: pip install -r requirements.txt
-Start Command: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+Start Command: sh start.sh
 Health Check Path: /health
 ```
 
@@ -80,7 +82,7 @@ Name: frotatech-platform-api
 Root Directory: platform/backend
 Runtime: Python
 Build Command: pip install -r requirements.txt
-Start Command: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+Start Command: sh start.sh
 Health Check Path: /health
 ```
 
@@ -94,6 +96,8 @@ Depois do primeiro deploy, rode as migrations no ambiente do Render:
 ```bash
 alembic upgrade head
 ```
+
+Se `RUN_MIGRATIONS_ON_START=true`, o `start.sh` executa `alembic upgrade head` automaticamente antes de iniciar o Uvicorn. Mesmo assim, no primeiro deploy de producao, confira os logs do Render para garantir que Alembic finalizou sem erro.
 
 Se o Render Shell nao estiver disponivel no plano usado, crie um Job temporario com:
 
@@ -120,6 +124,8 @@ cidadao@frotatech.demo / cidadao123
 ```
 
 Use seed apenas em ambiente de demonstracao ou homologacao. Em producao real, troque senhas imediatamente.
+
+Nao deixe `RUN_DEMO_SEED_ON_START=true` permanentemente em producao, porque o seed atual garante usuarios demo e redefine as senhas demo a cada execucao.
 
 ## Validacao da API
 

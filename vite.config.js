@@ -5,6 +5,7 @@ import { defineConfig } from 'vite'
 // https://vite.dev/config/
 export default defineConfig({
   logLevel: 'error', // Suppress warnings, only show errors
+  envPrefix: ['VITE_', 'URL_BASE_API_VITE'],
   optimizeDeps: {
     include: ['react', 'react-dom', 'react/jsx-runtime']
   },
