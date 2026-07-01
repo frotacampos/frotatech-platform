@@ -2,9 +2,10 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 import { appParams } from '@/lib/app-params';
 import { createAxiosClient } from '@base44/sdk/dist/utils/axios-client';
 import { authApi } from '@/lib/api';
+import { getRuntimeApiMode } from '@/lib/api/apiMode';
 
 const AuthContext = createContext();
-const apiMode = import.meta.env.VITE_API_MODE || 'base44';
+const apiMode = getRuntimeApiMode();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);

@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { citizensApi } from "@/lib/api";
 import { setCidadaoSession } from "@/lib/cidadaoSession";
+import { getRuntimeApiMode } from "@/lib/api/apiMode";
 
 function formatCPF(value) {
   return value
@@ -48,7 +49,7 @@ export default function CidadaoCadastro() {
     setLoading(true);
 
     try {
-      if ((import.meta.env.VITE_API_MODE || "base44") === "http" && form.senha !== form.confirmar_senha) {
+      if (getRuntimeApiMode() === "http" && form.senha !== form.confirmar_senha) {
         setErro("As senhas não conferem.");
         setLoading(false);
         return;

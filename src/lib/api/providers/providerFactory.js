@@ -1,6 +1,7 @@
 import * as base44Providers from "./base44";
 import * as mockProviders from "./mock";
 import * as httpProviders from "./http";
+import { getRuntimeApiMode } from "../apiMode";
 
 const providersByMode = {
   base44: base44Providers,
@@ -22,7 +23,7 @@ const providerNames = {
 };
 
 export const getApiMode = () => {
-  const mode = import.meta.env.VITE_API_MODE || "base44";
+  const mode = getRuntimeApiMode();
   return providersByMode[mode] ? mode : "base44";
 };
 

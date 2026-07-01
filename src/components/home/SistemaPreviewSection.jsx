@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Monitor, Map, ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { authApi } from "@/lib/api";
+import { getRuntimeApiMode } from "@/lib/api/apiMode";
 
 const pins = [
   { top: "30%", left: "25%", color: "bg-yellow-400", pulse: true },
@@ -84,7 +85,7 @@ function DashPanel() {
 }
 
 export default function SistemaPreviewSection() {
-  const apiMode = import.meta.env.VITE_API_MODE || "base44";
+  const apiMode = getRuntimeApiMode();
   const goToSystem = () => {
     if (apiMode === "http") {
       window.location.href = "/login?next=/dashboard";

@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ShieldCheck, Zap, BarChart3, ArrowRight } from "lucide-react";
 import { authApi } from "@/lib/api";
+import { getRuntimeApiMode } from "@/lib/api/apiMode";
 
 const beneficios = [
   {
@@ -37,7 +38,7 @@ const beneficios = [
 ];
 
 export default function BeneficiosSection() {
-  const apiMode = import.meta.env.VITE_API_MODE || "base44";
+  const apiMode = getRuntimeApiMode();
   const goToSystem = () => {
     if (apiMode === "http") {
       window.location.href = "/login?next=/dashboard";

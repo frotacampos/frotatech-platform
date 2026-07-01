@@ -1,9 +1,10 @@
 import React from "react";
 import { Zap, Mail, Phone, ArrowRight } from "lucide-react";
 import { authApi } from "@/lib/api";
+import { getRuntimeApiMode } from "@/lib/api/apiMode";
 
 export default function HomeFooter() {
-  const apiMode = import.meta.env.VITE_API_MODE || "base44";
+  const apiMode = getRuntimeApiMode();
   const navigateAccess = (path) => {
     if (apiMode === "http") {
       const next = path === "/redirect" ? "/dashboard" : path;

@@ -2,6 +2,22 @@
 
 Data: 2026-07-01
 
+## Atualizacao - autenticacao validada no Swagger
+
+Validacao posterior feita pelo Swagger confirmou que:
+
+```text
+POST https://api.frotatech.dev.br/api/v1/auth/login -> 200
+```
+
+com `admin@frotatech.demo / admin123`, retornando JWT corretamente.
+
+Portanto, a causa raiz atual do login em producao nao e mais o backend Render. O problema confirmado passou a ser o frontend publicado na Vercel ainda servindo um bundle antigo/legado, sem a tela `PlatformLogin` e sem o fluxo HTTP da FrotaTech Platform. A correcao correspondente esta documentada em:
+
+```text
+docs/CORRECAO_LOGIN_PRODUCAO_VERCEL.md
+```
+
 ## Resumo executivo
 
 O problema de login em producao foi auditado nas tres camadas: frontend Vercel, backend Render e integracao HTTP.

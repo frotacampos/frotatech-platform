@@ -4,8 +4,11 @@ import { ArrowRight, ShieldCheck, Zap, Star, UserPlus, LogIn } from "lucide-reac
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import DashboardMockup from "@/components/home/DashboardMockup";
+import { getRuntimeApiMode } from "@/lib/api/apiMode";
 
 export default function HeroSection() {
+  const operatorAccessPath = getRuntimeApiMode() === "http" ? "/login?next=/dashboard" : "/acesso-operador";
+
   return (
     <section
       id="hero"
@@ -75,7 +78,7 @@ export default function HeroSection() {
                   </Button>
                 </Link>
               </div>
-              <Link to="/acesso-operador">
+              <Link to={operatorAccessPath}>
                 <Button
                   variant="ghost"
                   className="text-white/30 hover:text-white/60 text-sm font-inter h-9 transition-all"

@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { authApi } from "@/lib/api";
+import { getRuntimeApiMode } from "@/lib/api/apiMode";
 
 export default function HomeHeader() {
   const [scrolled, setScrolled] = useState(false);
-  const apiMode = import.meta.env.VITE_API_MODE || "base44";
+  const apiMode = getRuntimeApiMode();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);

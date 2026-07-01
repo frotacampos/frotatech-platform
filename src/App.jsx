@@ -26,8 +26,9 @@ import AcessoOperador from './pages/AcessoOperador';
 import MeusChamados from './pages/MeusChamados';
 import Documentacao from './pages/Documentacao';
 import PlatformLogin from './pages/PlatformLogin';
+import { getRuntimeApiMode } from '@/lib/api/apiMode';
 
-const apiMode = import.meta.env.VITE_API_MODE || 'base44';
+const apiMode = getRuntimeApiMode();
 
 const HomeRedirectToLogin = () => {
   const { navigateToLogin } = useAuth();
