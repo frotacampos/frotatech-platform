@@ -7,6 +7,7 @@ import DashboardMockup from "@/components/home/DashboardMockup";
 import { getRuntimeApiMode } from "@/lib/api/apiMode";
 
 export default function HeroSection() {
+  const citizenLoginPath = getRuntimeApiMode() === "http" ? "/login?next=/dashboard" : "/cidadao-login";
   const operatorAccessPath = getRuntimeApiMode() === "http" ? "/login?next=/dashboard" : "/acesso-operador";
 
   return (
@@ -65,7 +66,7 @@ export default function HeroSection() {
 
             <div className="flex flex-col gap-3 mb-10">
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link to="/cidadao-login" className="flex-1">
+                <Link to={citizenLoginPath} className="flex-1">
                   <Button className="w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white border-0 h-14 px-8 rounded-2xl font-inter font-600 text-base hover:opacity-90 hover:scale-[1.02] transition-all shadow-[0_8px_32px_rgba(59,130,246,0.35)] group">
                     <LogIn className="w-4 h-4 mr-2" />
                     Entrar como Cidadão

@@ -28,6 +28,7 @@ function formatTelefone(value) {
 
 export default function CidadaoCadastro() {
   const navigate = useNavigate();
+  const loginPath = getRuntimeApiMode() === "http" ? "/login?next=/dashboard" : "/cidadao-login";
   const [form, setForm] = useState({
     nome: "",
     cpf: "",
@@ -248,7 +249,7 @@ export default function CidadaoCadastro() {
           <div className="mt-5 text-center">
             <p className="text-white/30 text-sm font-inter">
               Já tem cadastro?{" "}
-              <Link to="/cidadao-login" className="text-lumicity-cyan hover:underline">
+              <Link to={loginPath} className="text-lumicity-cyan hover:underline">
                 Entrar aqui
               </Link>
             </p>

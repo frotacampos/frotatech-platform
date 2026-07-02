@@ -13,8 +13,9 @@ const isProductionHost = () => {
 
 export const getRuntimeApiMode = () => {
   const envMode = String(import.meta.env.VITE_API_MODE || "").trim().toLowerCase();
+  if (isProductionHost()) return envMode === "mock" ? "mock" : "http";
   if (validApiModes.has(envMode)) return envMode;
-  return isProductionHost() ? "http" : "base44";
+  return "base44";
 };
 
 export const isHttpApiMode = () => getRuntimeApiMode() === "http";

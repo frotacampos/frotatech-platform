@@ -7,6 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { citizensApi } from "@/lib/api";
 import { setCidadaoSession } from "@/lib/cidadaoSession";
+import { getRuntimeApiMode } from "@/lib/api/apiMode";
+import PlatformLogin from "@/pages/PlatformLogin";
 
 function formatCPF(value) {
   return value
@@ -17,7 +19,7 @@ function formatCPF(value) {
     .slice(0, 14);
 }
 
-export default function AcessoOperador() {
+function AcessoOperadorLegado() {
   const navigate = useNavigate();
   const [cpf, setCpf] = useState("");
   const [dataNascimento, setDataNascimento] = useState("");
@@ -135,4 +137,8 @@ export default function AcessoOperador() {
       </motion.div>
     </div>
   );
+}
+
+export default function AcessoOperador() {
+  return getRuntimeApiMode() === "http" ? <PlatformLogin /> : <AcessoOperadorLegado />;
 }
